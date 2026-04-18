@@ -171,26 +171,38 @@ h6 {
 .scene {
   position: relative;
   overflow: hidden;
+  isolation: isolate;
 }
 
-.scene::before {
-  content: "";
+.scene-backdrop {
+  pointer-events: none;
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.15), transparent 18%),
-    url("/art/dark-scene.svg");
-  background-size: auto, cover;
-  background-position: center top, center top;
-  z-index: -3;
+    radial-gradient(circle at 50% 12%, color-mix(in srgb, var(--glow) 38%, white 8%), transparent 24%),
+    linear-gradient(180deg, color-mix(in srgb, var(--bg-soft) 62%, black 38%) 0%, var(--bg) 72%, color-mix(in srgb, var(--bg) 84%, black 16%) 100%);
+  z-index: 0;
+  transition: background 1200ms ease;
 }
 
-[data-theme="light"] .scene::before {
+.scene-atmosphere,
+.scene-celestial {
+  position: absolute;
+  inset: 0;
+}
+
+.scene-atmosphere {
   background:
-    radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.12), transparent 18%),
-    url("/art/light-scene.svg");
-  background-size: auto, cover;
-  background-position: center top, center top;
+    linear-gradient(180deg, rgba(10, 8, 20, 0.24), rgba(10, 8, 20, 0.08) 32%, rgba(10, 8, 20, 0.28) 100%),
+    radial-gradient(circle at 50% 14%, rgba(255, 255, 255, 0.14), transparent 22%);
+  z-index: 0;
+  transition: background 1200ms ease;
+}
+
+[data-theme="light"] .scene-atmosphere {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.03) 30%, rgba(255, 234, 154, 0.16) 100%),
+    radial-gradient(circle at 50% 14%, rgba(255, 247, 196, 0.18), transparent 24%);
 }
 
 .scene::after {
@@ -202,7 +214,7 @@ h6 {
     radial-gradient(circle, rgba(255, 255, 255, 0.18) 0 1px, transparent 1px 100%);
   background-size: auto, 22px 22px;
   opacity: 0.55;
-  z-index: -2;
+  z-index: 1;
 }
 
 .scene-stars {
@@ -213,59 +225,256 @@ h6 {
     radial-gradient(circle at 70% 15%, rgba(255, 255, 255, 0.9) 0 2px, transparent 2px 100%),
     radial-gradient(circle at 84% 30%, rgba(255, 255, 255, 0.85) 0 2px, transparent 2px 100%),
     radial-gradient(circle at 62% 42%, rgba(255, 255, 255, 0.8) 0 2px, transparent 2px 100%);
+  z-index: 2;
 }
 
-.scene-home::before {
+.scene-celestial {
+  z-index: 1;
+}
+
+.scene-moon,
+.scene-sun {
+  position: absolute;
+  left: 50%;
+  width: clamp(4.75rem, 10vw, 7rem);
+  aspect-ratio: 1;
+  border-radius: 999px;
+  transform: translateX(-50%);
+  will-change: transform, opacity, filter;
+  animation-fill-mode: both;
+}
+
+.scene-moon {
+  top: clamp(2.5rem, 7vw, 4.5rem);
+  background:
+    radial-gradient(circle at 36% 36%, #fffaf0 0 34%, #e9ecf7 35% 58%, #a8b1d8 59% 100%);
+  box-shadow:
+    0 0 0 0.55rem rgba(255, 255, 255, 0.08),
+    0 0 2.2rem rgba(221, 227, 255, 0.6);
+}
+
+.scene-moon::before,
+.scene-moon::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  background: rgba(122, 132, 186, 0.24);
+}
+
+.scene-moon::before {
+  top: 26%;
+  left: 54%;
+  width: 18%;
+  height: 18%;
+}
+
+.scene-moon::after {
+  top: 54%;
+  left: 24%;
+  width: 14%;
+  height: 14%;
+}
+
+.scene-sun {
+  top: clamp(2.5rem, 7vw, 4.5rem);
+  background:
+    radial-gradient(circle at 50% 50%, #fff9db 0 28%, #ffe38a 29% 55%, #ffb62e 56% 100%);
+  box-shadow:
+    0 0 0 0.8rem rgba(255, 204, 82, 0.16),
+    0 0 2.8rem rgba(255, 188, 59, 0.65);
+}
+
+.scene-sun::before {
+  content: "";
+  position: absolute;
+  inset: -35%;
+  border-radius: 999px;
+  background:
+    conic-gradient(
+      from 0deg,
+      rgba(255, 205, 76, 0.95) 0deg 10deg,
+      transparent 10deg 30deg,
+      rgba(255, 205, 76, 0.95) 30deg 40deg,
+      transparent 40deg 60deg,
+      rgba(255, 205, 76, 0.95) 60deg 70deg,
+      transparent 70deg 90deg,
+      rgba(255, 205, 76, 0.95) 90deg 100deg,
+      transparent 100deg 120deg,
+      rgba(255, 205, 76, 0.95) 120deg 130deg,
+      transparent 130deg 150deg,
+      rgba(255, 205, 76, 0.95) 150deg 160deg,
+      transparent 160deg 180deg,
+      rgba(255, 205, 76, 0.95) 180deg 190deg,
+      transparent 190deg 210deg,
+      rgba(255, 205, 76, 0.95) 210deg 220deg,
+      transparent 220deg 240deg,
+      rgba(255, 205, 76, 0.95) 240deg 250deg,
+      transparent 250deg 270deg,
+      rgba(255, 205, 76, 0.95) 270deg 280deg,
+      transparent 280deg 300deg,
+      rgba(255, 205, 76, 0.95) 300deg 310deg,
+      transparent 310deg 330deg,
+      rgba(255, 205, 76, 0.95) 330deg 340deg,
+      transparent 340deg 360deg
+    );
+  mask: radial-gradient(circle, transparent 42%, black 44%);
+}
+
+html[data-theme="dark"] .scene-moon {
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1);
+}
+
+html[data-theme="dark"] .scene-sun {
+  opacity: 0;
+  transform: translate(-50%, 22rem) scale(0.7);
+}
+
+html[data-theme="light"]:not([data-theme-transition="to-light"]) .scene-moon {
+  opacity: 0;
+  transform: translate(-50%, -8rem) scale(0.78);
+}
+
+html[data-theme="light"]:not([data-theme-transition="to-light"]) .scene-sun {
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1);
+}
+
+html[data-theme-transition="to-light"] .scene-moon {
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1);
+  animation: moonset 950ms cubic-bezier(0.5, 0, 0.8, 0.2);
+}
+
+html[data-theme-transition="to-light"] .scene-sun {
+  opacity: 0;
+  transform: translate(-50%, 24rem) scale(0.72);
+  animation: sunrise 1400ms cubic-bezier(0.18, 0.86, 0.22, 1) 800ms;
+}
+
+html[data-theme-transition="to-dark"] .scene-sun {
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1);
+  animation: sunset 950ms cubic-bezier(0.42, 0, 0.7, 0.2);
+}
+
+html[data-theme-transition="to-dark"] .scene-moon {
+  opacity: 0;
+  transform: translate(-50%, 24rem) scale(0.72);
+  animation: moonrise 1400ms cubic-bezier(0.18, 0.86, 0.22, 1) 800ms;
+}
+
+html[data-theme="light"] .scene-stars {
+  opacity: 0.22;
+  transition: opacity 900ms ease;
+}
+
+html[data-theme="dark"] .scene-stars {
+  opacity: 0.9;
+  transition: opacity 900ms ease;
+}
+
+@keyframes moonset {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 18rem) scale(0.78);
+  }
+}
+
+@keyframes sunrise {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 24rem) scale(0.72);
+    filter: brightness(1.15);
+  }
+
+  55% {
+    opacity: 1;
+    transform: translate(-50%, 7rem) scale(1.03);
+    filter: brightness(1.2);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+    filter: brightness(1);
+  }
+}
+
+@keyframes sunset {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+    filter: brightness(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 18rem) scale(0.78);
+    filter: brightness(0.95);
+  }
+}
+
+@keyframes moonrise {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 24rem) scale(0.72);
+    filter: brightness(0.92);
+  }
+
+  55% {
+    opacity: 1;
+    transform: translate(-50%, 7rem) scale(1.03);
+    filter: brightness(1.05);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+    filter: brightness(1);
+  }
+}
+
+.scene-home .scene-atmosphere {
   background:
     radial-gradient(circle at 50% 18%, rgba(255, 249, 214, 0.35), transparent 16%),
-    url("/art/dark-scene.svg");
-  background-size: auto, cover;
-  background-position: center top, center top;
+    linear-gradient(180deg, rgba(28, 17, 54, 0.12), rgba(28, 17, 54, 0.04) 35%, rgba(28, 17, 54, 0.22) 100%);
 }
 
-[data-theme="light"] .scene-home::before {
+[data-theme="light"] .scene-home .scene-atmosphere {
   background:
     radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.3), transparent 16%),
-    url("/art/light-scene.svg");
-  background-size: auto, cover;
-  background-position: center top, center top;
+    linear-gradient(180deg, rgba(255, 251, 215, 0.08), rgba(255, 251, 215, 0.02) 28%, rgba(255, 214, 97, 0.16) 100%);
 }
 
-.scene-projects::before {
+.scene-projects .scene-atmosphere {
   background:
-    linear-gradient(180deg, rgba(24, 24, 24, 0.82) 0%, rgba(31, 31, 31, 0.68) 22%, rgba(255, 217, 41, 0.28) 22%, rgba(255, 217, 41, 0.18) 100%),
-    url("/art/dark-scene.svg");
-  background-size: auto, cover;
-  background-position: center top, center top;
+    linear-gradient(180deg, rgba(24, 24, 24, 0.72) 0%, rgba(31, 31, 31, 0.46) 22%, rgba(255, 217, 41, 0.24) 22%, rgba(255, 217, 41, 0.16) 100%);
 }
 
-[data-theme="light"] .scene-projects::before {
+[data-theme="light"] .scene-projects .scene-atmosphere {
   background:
-    linear-gradient(180deg, rgba(251, 246, 203, 0.78) 0%, rgba(247, 242, 177, 0.7) 20%, rgba(255, 224, 50, 0.22) 20%, rgba(255, 224, 50, 0.14) 100%),
-    url("/art/light-scene.svg");
-  background-size: auto, cover;
-  background-position: center top, center top;
+    linear-gradient(180deg, rgba(251, 246, 203, 0.62) 0%, rgba(247, 242, 177, 0.36) 20%, rgba(255, 224, 50, 0.18) 20%, rgba(255, 224, 50, 0.1) 100%);
 }
 
-.scene-games::before {
+.scene-games .scene-atmosphere {
   background:
-    linear-gradient(180deg, rgba(94, 94, 94, 0.18) 0%, rgba(79, 79, 79, 0.24) 100%),
-    url("/art/dark-scene.svg");
-  background-size: auto, cover;
-  background-position: center top, center top;
+    linear-gradient(180deg, rgba(94, 94, 94, 0.18) 0%, rgba(79, 79, 79, 0.24) 100%);
 }
 
-[data-theme="light"] .scene-games::before {
+[data-theme="light"] .scene-games .scene-atmosphere {
   background:
-    linear-gradient(180deg, rgba(150, 190, 109, 0.14) 0%, rgba(220, 235, 161, 0.22) 100%),
-    url("/art/light-scene.svg");
-  background-size: auto, cover;
-  background-position: center top, center top;
+    linear-gradient(180deg, rgba(150, 190, 109, 0.14) 0%, rgba(220, 235, 161, 0.22) 100%);
 }
 
-.scene-about::before,
-.scene-contact::before,
-.scene-experience::before {
+.scene-about .scene-atmosphere,
+.scene-contact .scene-atmosphere,
+.scene-experience .scene-atmosphere {
   background:
     radial-gradient(circle at 50% 15%, color-mix(in srgb, var(--glow) 85%, white 15%), transparent 18%),
     linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 100%);
@@ -276,11 +485,15 @@ h6 {
   background: transparent;
 }
 
+.scene-content {
+  z-index: 4;
+}
+
 .sprite-layer {
   pointer-events: none;
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: 3;
 }
 
 .sprite {

@@ -20,10 +20,17 @@ export function SiteShell({
   children: ReactNode;
 }) {
   return (
-    <div className={`scene min-h-screen bg-[var(--bg)] text-[var(--text)] ${scene}`}>
+    <div className={`scene min-h-screen text-[var(--text)] ${scene}`}>
+      <div className="scene-backdrop" aria-hidden="true">
+        <div className="scene-atmosphere" />
+        <div className="scene-celestial">
+          <div className="scene-moon" />
+          <div className="scene-sun" />
+        </div>
+      </div>
       <div className="scene-stars pointer-events-none fixed inset-0" />
       <SpriteCluster kind={spriteKind} />
-      <div className="relative mx-auto flex min-h-screen w-full max-w-7xl flex-col px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
+      <div className="scene-content relative mx-auto flex min-h-screen w-full max-w-7xl flex-col px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
         <header className="site-header mb-10">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
             <div>
