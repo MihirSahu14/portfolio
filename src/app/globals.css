@@ -1,26 +1,419 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #1b0f35;
+  --bg-soft: #5d22a8;
+  --panel: rgba(27, 15, 53, 0.78);
+  --panel-strong: rgba(31, 14, 56, 0.92);
+  --text: #fff7de;
+  --muted: #f4d3bf;
+  --accent: #ffd261;
+  --accent-2: #9df0d8;
+  --border: #35205f;
+  --shadow: #140821;
+  --glow: rgba(255, 132, 214, 0.24);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: var(--bg);
+  --color-foreground: var(--text);
+  --font-sans: "Lucida Console", "Courier New", monospace;
+  --font-mono: "Lucida Console", "Courier New", monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+[data-theme="light"] {
+  --bg: #f7f1ae;
+  --bg-soft: #a9db72;
+  --panel: rgba(255, 252, 221, 0.9);
+  --panel-strong: rgba(248, 250, 225, 0.96);
+  --text: #254117;
+  --muted: #46652a;
+  --accent: #ffbf2f;
+  --accent-2: #53b96b;
+  --border: #638b3e;
+  --shadow: #8aa55c;
+  --glow: rgba(255, 191, 47, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 100%);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: transparent;
+  color: var(--text);
+  font-family: "Lucida Console", "Courier New", monospace;
+  letter-spacing: 0.04em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Lucida Console", "Courier New", monospace;
+  line-height: 1.4;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.pixel-panel,
+.pixel-card,
+.pixel-button,
+.pixel-nav,
+.pixel-tag,
+.pixel-stat {
+  position: relative;
+  border: 4px solid var(--border);
+  box-shadow: 6px 6px 0 0 var(--shadow);
+}
+
+.pixel-panel {
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 30%), var(--panel);
+  padding: 2rem;
+}
+
+.pixel-panel::after,
+.pixel-card::after {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 2px dashed color-mix(in srgb, var(--border) 70%, transparent);
+  pointer-events: none;
+}
+
+.pixel-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 32%), var(--panel-strong);
+  padding: 1.5rem;
+  transition:
+    transform 180ms steps(2),
+    box-shadow 180ms steps(2),
+    border-color 180ms steps(2);
+}
+
+.pixel-card:hover,
+.pixel-nav:hover,
+.pixel-button:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 12px 12px 0 0 var(--shadow);
+}
+
+.pixel-button,
+.pixel-nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--panel-strong);
+  padding: 0.8rem 1rem;
+  font-family: "Lucida Console", "Courier New", monospace;
+  font-size: 0.72rem;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.pixel-nav {
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.pixel-button {
+  cursor: pointer;
+  background: color-mix(in srgb, var(--accent) 22%, var(--panel-strong));
+}
+
+.pixel-button:hover,
+.pixel-nav:hover,
+.pixel-card:hover {
+  border-color: var(--accent);
+}
+
+.pixel-tag {
+  display: inline-flex;
+  align-items: center;
+  background: color-mix(in srgb, var(--accent-2) 16%, transparent);
+  padding: 0.35rem 0.65rem;
+  font-family: "Lucida Console", "Courier New", monospace;
+  font-size: 0.58rem;
+  text-transform: uppercase;
+  box-shadow: 4px 4px 0 0 var(--shadow);
+}
+
+.pixel-stat {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: var(--panel-strong);
+  padding: 0.9rem 1rem;
+}
+
+.pixel-eyebrow {
+  font-family: "Lucida Console", "Courier New", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.scene {
+  position: relative;
+  overflow: hidden;
+}
+
+.scene::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.15), transparent 18%),
+    url("/art/dark-scene.svg");
+  background-size: auto, cover;
+  background-position: center top, center top;
+  z-index: -3;
+}
+
+[data-theme="light"] .scene::before {
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.12), transparent 18%),
+    url("/art/light-scene.svg");
+  background-size: auto, cover;
+  background-position: center top, center top;
+}
+
+.scene::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0) 24%),
+    radial-gradient(circle, rgba(255, 255, 255, 0.18) 0 1px, transparent 1px 100%);
+  background-size: auto, 22px 22px;
+  opacity: 0.55;
+  z-index: -2;
+}
+
+.scene-stars {
+  opacity: 0.9;
+  background:
+    radial-gradient(circle at 10% 14%, rgba(255, 255, 255, 0.95) 0 2px, transparent 2px 100%),
+    radial-gradient(circle at 22% 28%, rgba(255, 255, 255, 0.75) 0 2px, transparent 2px 100%),
+    radial-gradient(circle at 70% 15%, rgba(255, 255, 255, 0.9) 0 2px, transparent 2px 100%),
+    radial-gradient(circle at 84% 30%, rgba(255, 255, 255, 0.85) 0 2px, transparent 2px 100%),
+    radial-gradient(circle at 62% 42%, rgba(255, 255, 255, 0.8) 0 2px, transparent 2px 100%);
+}
+
+.scene-home::before {
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255, 249, 214, 0.35), transparent 16%),
+    url("/art/dark-scene.svg");
+  background-size: auto, cover;
+  background-position: center top, center top;
+}
+
+[data-theme="light"] .scene-home::before {
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.3), transparent 16%),
+    url("/art/light-scene.svg");
+  background-size: auto, cover;
+  background-position: center top, center top;
+}
+
+.scene-projects::before {
+  background:
+    linear-gradient(180deg, rgba(24, 24, 24, 0.82) 0%, rgba(31, 31, 31, 0.68) 22%, rgba(255, 217, 41, 0.28) 22%, rgba(255, 217, 41, 0.18) 100%),
+    url("/art/dark-scene.svg");
+  background-size: auto, cover;
+  background-position: center top, center top;
+}
+
+[data-theme="light"] .scene-projects::before {
+  background:
+    linear-gradient(180deg, rgba(251, 246, 203, 0.78) 0%, rgba(247, 242, 177, 0.7) 20%, rgba(255, 224, 50, 0.22) 20%, rgba(255, 224, 50, 0.14) 100%),
+    url("/art/light-scene.svg");
+  background-size: auto, cover;
+  background-position: center top, center top;
+}
+
+.scene-games::before {
+  background:
+    linear-gradient(180deg, rgba(94, 94, 94, 0.18) 0%, rgba(79, 79, 79, 0.24) 100%),
+    url("/art/dark-scene.svg");
+  background-size: auto, cover;
+  background-position: center top, center top;
+}
+
+[data-theme="light"] .scene-games::before {
+  background:
+    linear-gradient(180deg, rgba(150, 190, 109, 0.14) 0%, rgba(220, 235, 161, 0.22) 100%),
+    url("/art/light-scene.svg");
+  background-size: auto, cover;
+  background-position: center top, center top;
+}
+
+.scene-about::before,
+.scene-contact::before,
+.scene-experience::before {
+  background:
+    radial-gradient(circle at 50% 15%, color-mix(in srgb, var(--glow) 85%, white 15%), transparent 18%),
+    linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 100%);
+}
+
+.site-header,
+.site-footer {
+  background: transparent;
+}
+
+.sprite-layer {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+}
+
+.sprite {
+  position: absolute;
+  image-rendering: pixelated;
+  opacity: 0.95;
+}
+
+.cloud-a {
+  top: 9rem;
+  left: 4rem;
+  width: 8rem;
+  height: auto;
+}
+
+.cloud-b {
+  top: 15rem;
+  right: 8rem;
+  width: 10rem;
+  height: auto;
+}
+
+.tech-a {
+  top: 12rem;
+  right: 5rem;
+  width: 7.5rem;
+  height: auto;
+}
+
+.tech-b {
+  top: 29rem;
+  left: 4rem;
+  width: 6rem;
+  height: auto;
+}
+
+.tech-c {
+  bottom: 6rem;
+  right: 9rem;
+  width: 5.5rem;
+  height: auto;
+}
+
+.game-a {
+  top: 13rem;
+  right: 6rem;
+  width: 7rem;
+  height: auto;
+}
+
+.game-b {
+  bottom: 8rem;
+  left: 5rem;
+  width: 6rem;
+  height: auto;
+}
+
+.game-c {
+  top: 26rem;
+  left: 3.5rem;
+  width: 5rem;
+  height: auto;
+}
+
+.hero-screen {
+  display: grid;
+  gap: 2rem;
+  align-items: end;
+  min-height: 62vh;
+  padding: 4rem 0 2rem;
+}
+
+.hero-copy {
+  max-width: 64rem;
+}
+
+.hero-card {
+  max-width: 29rem;
+  justify-self: start;
+  background: var(--panel);
+  border: 4px solid var(--border);
+  box-shadow: 6px 6px 0 0 var(--shadow);
+  padding: 1.75rem;
+}
+
+.section-panel {
+  min-height: 100%;
+}
+
+@media (min-width: 1024px) {
+  .hero-screen {
+    grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.65fr);
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .pixel-panel {
+    padding: 1rem;
+  }
+
+  .pixel-panel::after,
+  .pixel-card::after {
+    inset: 8px;
+  }
+
+  .pixel-button,
+  .pixel-nav {
+    width: 100%;
+  }
+
+  .hero-screen {
+    min-height: auto;
+    padding-top: 2rem;
+  }
+
+  .hero-card {
+    padding: 1.25rem;
+  }
+
+  .sprite {
+    opacity: 0.4;
+  }
+
+  .tech-a,
+  .game-a,
+  .cloud-b {
+    right: 1rem;
+  }
+
+  .tech-b,
+  .game-c,
+  .cloud-a {
+    left: 1rem;
+  }
 }

@@ -1,65 +1,131 @@
-import Image from "next/image";
+import Link from "next/link";
+import { FeatureCard } from "@/components/feature-card";
+import { Section } from "@/components/section";
+import { SiteShell } from "@/components/site-shell";
+import {
+  aboutCopy,
+  featuredGames,
+  featuredProjects,
+  heroStats,
+  homeHighlights,
+  socialLinks,
+} from "@/data/site";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <SiteShell
+      title="Mihir Sahu"
+      eyebrow="Player One"
+      description="Software Engineer + Game Designer"
+      scene="scene-home"
+      spriteKind="home"
+    >
+      <section className="hero-screen">
+        <div className="hero-copy">
+          <p className="pixel-eyebrow">Start Screen</p>
+          <h2 className="mt-5 max-w-4xl text-5xl uppercase sm:text-6xl lg:text-7xl">
+            I build software, systems, and game worlds.
+          </h2>
+          <p className="mt-8 max-w-2xl text-2xl leading-9 text-[var(--muted)]">
+            My work sits between engineering and design. Sometimes that means AI and backend
+            systems, sometimes it means mechanics, UI, and building things that people actually
+            want to interact with.
           </p>
+          <div className="mt-10 flex flex-wrap gap-4">
+            <Link href="/projects" className="pixel-button">
+              PROJECTS
+            </Link>
+            <Link href="/games" className="pixel-button">
+              GAMES
+            </Link>
+            <Link href="/about" className="pixel-button">
+              ABOUT ME
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <aside className="hero-card">
+          <p className="pixel-eyebrow">Quick Loadout</p>
+          <div className="mt-6 grid gap-3">
+            {heroStats.map((stat) => (
+              <div key={stat.label} className="pixel-stat">
+                <span className="text-xs uppercase tracking-[0.24em] text-[var(--muted)]">
+                  {stat.label}
+                </span>
+                <strong className="text-sm uppercase sm:text-base">{stat.value}</strong>
+              </div>
+            ))}
+          </div>
+          <div className="mt-8 border-t-4 border-dashed border-[var(--border)] pt-6">
+            <p className="text-lg leading-8 text-[var(--muted)]">
+              CS, game design, research, and product thinking all end up in the same place for me:
+              making systems feel intentional.
+            </p>
+          </div>
+        </aside>
+      </section>
+
+      <div className="mt-20 grid gap-8 lg:grid-cols-3">
+        {homeHighlights.map((card) => (
+          <FeatureCard key={card.title} card={card} />
+        ))}
+      </div>
+
+      <div className="mt-20 grid gap-8 lg:grid-cols-2">
+        <Section title="Computer Science" kicker="Main Track">
+          <p className="max-w-3xl text-lg leading-8 text-[var(--muted)]">{aboutCopy.cs}</p>
+        </Section>
+        <Section title="Game Design" kicker="Side Path">
+          <p className="max-w-3xl text-lg leading-8 text-[var(--muted)]">{aboutCopy.games}</p>
+        </Section>
+      </div>
+
+      <div className="mt-20 grid gap-8 lg:grid-cols-2">
+        <Section title="Featured Projects" kicker="Engineering">
+          <div className="grid gap-5">
+            {featuredProjects.slice(0, 2).map((card) => (
+              <FeatureCard key={card.title} card={card} />
+            ))}
+          </div>
+          <div className="mt-8">
+            <Link href="/projects" className="pixel-button">
+              SEE ALL PROJECTS
+            </Link>
+          </div>
+        </Section>
+        <Section title="Featured Games" kicker="Play">
+          <div className="grid gap-5">
+            {featuredGames.slice(0, 2).map((card) => (
+              <FeatureCard key={card.title} card={card} />
+            ))}
+          </div>
+          <div className="mt-8">
+            <Link href="/games" className="pixel-button">
+              SEE ALL GAMES
+            </Link>
+          </div>
+        </Section>
+      </div>
+
+      <div className="mt-20" />
+      <Section title="Contact" kicker="Open Channel">
+        <div className="grid gap-4 md:grid-cols-3">
+          {socialLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              target={link.href.startsWith("http") ? "_blank" : undefined}
+              rel={link.href.startsWith("http") ? "noreferrer" : undefined}
+              className="pixel-card"
+            >
+              <p className="text-xs uppercase tracking-[0.24em] text-[var(--accent)]">
+                {link.label}
+              </p>
+              <p className="mt-4 text-base leading-8 text-[var(--muted)]">{link.value}</p>
+            </a>
+          ))}
         </div>
-      </main>
-    </div>
+      </Section>
+    </SiteShell>
   );
 }
