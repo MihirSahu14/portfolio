@@ -20,6 +20,7 @@ export default function ContactPage() {
             <a
               key={link.label}
               href={link.href}
+              download={link.download}
               target={link.href.startsWith("http") ? "_blank" : undefined}
               rel={link.href.startsWith("http") ? "noreferrer" : undefined}
               className="pixel-card"

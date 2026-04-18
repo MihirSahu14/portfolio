@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ReactNode } from "react";
-import { navItems, socialLinks } from "@/data/site";
+import { navItems, resumeLink, socialLinks } from "@/data/site";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { SpriteCluster } from "@/components/sprite-cluster";
 
@@ -35,6 +35,9 @@ export function SiteShell({
             </div>
             <div className="flex flex-wrap items-center gap-3">
               <ThemeToggle />
+              <a className="pixel-button" href={resumeLink.href} download>
+                RESUME
+              </a>
               <a className="pixel-button" href="mailto:mihirs1410@gmail.com">
                 CONTACT
               </a>
@@ -61,6 +64,7 @@ export function SiteShell({
                 <a
                   key={link.label}
                   href={link.href}
+                  download={link.download}
                   target={link.href.startsWith("http") ? "_blank" : undefined}
                   rel={link.href.startsWith("http") ? "noreferrer" : undefined}
                   className="pixel-nav"

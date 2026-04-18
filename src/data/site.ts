@@ -3,6 +3,13 @@ export type NavItem = {
   label: string;
 };
 
+export type ExternalLink = {
+  label: string;
+  href: string;
+  value: string;
+  download?: boolean;
+};
+
 export type FeatureCard = {
   title: string;
   subtitle: string;
@@ -28,7 +35,14 @@ export const navItems: NavItem[] = [
   { href: "/contact", label: "Contact" },
 ];
 
-export const socialLinks = [
+export const resumeLink: ExternalLink = {
+  label: "Resume",
+  href: "/resume",
+  value: "Download PDF",
+  download: true,
+};
+
+export const socialLinks: ExternalLink[] = [
   {
     label: "Email",
     href: "mailto:mihirs1410@gmail.com",
@@ -44,6 +58,7 @@ export const socialLinks = [
     href: "https://github.com/MihirSahu14",
     value: "github.com/MihirSahu14",
   },
+  resumeLink,
 ];
 
 export const heroStats = [

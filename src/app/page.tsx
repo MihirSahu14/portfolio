@@ -8,6 +8,7 @@ import {
   featuredProjects,
   heroStats,
   homeHighlights,
+  resumeLink,
   socialLinks,
 } from "@/data/site";
 
@@ -38,6 +39,9 @@ export default function Home() {
             <Link href="/games" className="pixel-button">
               GAMES
             </Link>
+            <a href={resumeLink.href} download className="pixel-button">
+              RESUME
+            </a>
             <Link href="/about" className="pixel-button">
               ABOUT ME
             </Link>
@@ -114,6 +118,7 @@ export default function Home() {
             <a
               key={link.label}
               href={link.href}
+              download={link.download}
               target={link.href.startsWith("http") ? "_blank" : undefined}
               rel={link.href.startsWith("http") ? "noreferrer" : undefined}
               className="pixel-card"
