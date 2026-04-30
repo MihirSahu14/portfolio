@@ -1,8 +1,8 @@
 import { FeatureCard as FeatureCardType } from "@/data/site";
 
 export function FeatureCard({ card }: { card: FeatureCardType }) {
-  return (
-    <article className="pixel-card">
+  const content = (
+    <>
       <p className="text-xs uppercase tracking-[0.24em] text-[var(--accent)]">
         {card.subtitle}
       </p>
@@ -15,6 +15,28 @@ export function FeatureCard({ card }: { card: FeatureCardType }) {
           </span>
         ))}
       </div>
+    </>
+  );
+
+  if (card.href) {
+    const isExternal = card.href.startsWith("http");
+
+    return (
+      <a
+        className="pixel-card block h-full"
+        href={card.href}
+        target={isExternal ? "_blank" : undefined}
+        rel={isExternal ? "noreferrer" : undefined}
+        aria-label={`Open ${card.title}`}
+      >
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <article className="pixel-card h-full">
+      {content}
     </article>
   );
 }

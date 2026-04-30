@@ -97,8 +97,9 @@ export const featuredProjects: FeatureCard[] = [
     title: "CryptoDash",
     subtitle: "React, FastAPI, CoinGecko API",
     description:
-      "A crypto portfolio tracker with real-time market data, historical charts, wallet tracking, and a more polished motion-heavy frontend than most dashboard clones.",
+      "A full-stack cryptocurrency dashboard with live market tracking, interactive candlestick charts, crypto news, wallet-based portfolio analysis, and AI-style insight features.",
     tags: ["React", "FastAPI", "Chart.js", "APIs"],
+    href: "https://cryptodash-eta.vercel.app/",
   },
   {
     title: "NOMinate",
@@ -130,6 +131,7 @@ export const featuredGames: FeatureCard[] = [
     description:
       "A horror game focused on atmosphere, progression, enemy behaviors, and modular systems that could expand without collapsing under their own weight.",
     tags: ["Unity", "C#", "Horror", "Gameplay Systems"],
+    href: "https://aeryno.itch.io/veil",
   },
   {
     title: "Community Cook",
