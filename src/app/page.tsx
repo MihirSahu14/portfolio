@@ -39,9 +39,9 @@ export default function Home() {
             <Link href="/games" className="pixel-button">
               GAMES
             </Link>
-            <a href={resumeLink.href} download className="pixel-button">
+            <Link href={resumeLink.href} className="pixel-button">
               RESUME
-            </a>
+            </Link>
             <Link href="/about" className="pixel-button">
               ABOUT ME
             </Link>

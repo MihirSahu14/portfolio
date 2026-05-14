@@ -38,8 +38,7 @@ export const navItems: NavItem[] = [
 export const resumeLink: ExternalLink = {
   label: "Resume",
   href: "/resume",
-  value: "Download PDF",
-  download: true,
+  value: "Preview PDF",
 };
 
 export const socialLinks: ExternalLink[] = [

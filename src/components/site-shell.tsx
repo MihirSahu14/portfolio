@@ -42,9 +42,9 @@ export function SiteShell({
             </div>
             <div className="flex flex-wrap items-center gap-3">
               <ThemeToggle />
-              <a className="pixel-button" href={resumeLink.href} download>
+              <Link className="pixel-button" href={resumeLink.href}>
                 RESUME
-              </a>
+              </Link>
               <a className="pixel-button" href="mailto:mihirs1410@gmail.com">
                 CONTACT
               </a>
