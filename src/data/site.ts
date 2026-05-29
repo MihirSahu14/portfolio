@@ -94,7 +94,7 @@ export const homeHighlights: FeatureCard[] = [
 export const featuredProjects: FeatureCard[] = [
   {
     title: "GameGold",
-    subtitle: "Phase 1 Complete, Phase 2 In Progress",
+    subtitle: "Next.js, TypeScript, FastAPI, Python, MongoDB, ReactFlow, TanStack Query, Zustand, Claude API, Tailwind CSS, Vitest, pytest",
     description:
       "An AI-powered game design platform moving through six stages: concept and GDD generation, systems and balance analysis, asset production with Unity guides, AI playtesting, deployment tools, and a Tauri desktop workflow.",
     tags: ["Next.js", "FastAPI", "MongoDB", "Claude"],
