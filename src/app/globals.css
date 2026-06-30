@@ -349,7 +349,7 @@ html[data-theme-transition="to-light"] .scene-moon {
 html[data-theme-transition="to-light"] .scene-sun {
   opacity: 0;
   transform: translate(-50%, 24rem) scale(0.72);
-  animation: sunrise 1400ms cubic-bezier(0.18, 0.86, 0.22, 1) 800ms;
+  animation: sunrise 1400ms cubic-bezier(0.18, 0.86, 0.22, 1) 950ms;
 }
 
 html[data-theme-transition="to-dark"] .scene-sun {
@@ -361,7 +361,7 @@ html[data-theme-transition="to-dark"] .scene-sun {
 html[data-theme-transition="to-dark"] .scene-moon {
   opacity: 0;
   transform: translate(-50%, 24rem) scale(0.72);
-  animation: moonrise 1400ms cubic-bezier(0.18, 0.86, 0.22, 1) 800ms;
+  animation: moonrise 1400ms cubic-bezier(0.18, 0.86, 0.22, 1) 950ms;
 }
 
 html[data-theme="light"] .scene-stars {

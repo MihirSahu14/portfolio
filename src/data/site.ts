@@ -98,7 +98,7 @@ export const featuredProjects: FeatureCard[] = [
     description:
       "An AI-powered game design platform moving through six stages: concept and GDD generation, systems and balance analysis, asset production with Unity guides, AI playtesting, deployment tools, and a Tauri desktop workflow.",
     tags: ["Next.js", "FastAPI", "MongoDB", "Claude"],
-    href: "https://github.com/MihirSahu14/GameGold",
+    href: "https://gamegold.vercel.app/",
   },
   {
     title: "CryptoDash",
