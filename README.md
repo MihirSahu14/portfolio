@@ -1,4 +1,4 @@
-# Mihir Sahu — Portfolio
+# Mihir Sahu - Portfolio
 
 [mihirsahu.vercel.app](https://mihirsahu.vercel.app/)
 
