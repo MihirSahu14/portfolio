@@ -94,9 +94,9 @@ export const homeHighlights: FeatureCard[] = [
 export const featuredProjects: FeatureCard[] = [
   {
     title: "GameGold",
-    subtitle: "Next.js, TypeScript, FastAPI, Python, MongoDB, ReactFlow, TanStack Query, Zustand, Claude API, Tailwind CSS, Vitest, pytest",
+    subtitle: "Next.js, FastAPI, ReactFlow, Claude API, MongoDB, Unity MCP",
     description:
-      "An AI-powered game design platform moving through six stages: concept and GDD generation, systems and balance analysis, asset production with Unity guides, AI playtesting, deployment tools, and a Tauri desktop workflow.",
+      "An AI-powered game design platform guiding developers through 7 stages: concept and GDD generation via sequential Claude calls, systems and balance analysis with exploit detection, asset production (sprites, C# scripts, dialogue trees), Unity integration via an in-Editor MCP server, AI playtesting across 4 personas, and deployment tooling with store page and export bundle generation.",
     tags: ["Next.js", "FastAPI", "MongoDB", "Claude"],
     href: "https://gamegold.vercel.app/",
   },
