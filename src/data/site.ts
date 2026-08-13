@@ -93,6 +93,14 @@ export const homeHighlights: FeatureCard[] = [
 
 export const featuredProjects: FeatureCard[] = [
   {
+    title: "Intern",
+    subtitle: "Next.js, TypeScript, Convex, MCP, Gemini API, OAuth",
+    description:
+      "A shared memory for AI agents so everything a company learns lives in one place: capturing the same thing twice strengthens what is known instead of creating a duplicate, and the full history can be replayed to rebuild it. Agents draft emails and Slack messages but never send them, and the edits a person makes before approving are handed to the next agent, so it gets it right sooner without any retraining.",
+    tags: ["Next.js", "Convex", "MCP", "Gemini"],
+    href: "https://intern-brain.vercel.app",
+  },
+  {
     title: "GameGold",
     subtitle: "Next.js, FastAPI, ReactFlow, Claude API, MongoDB, Unity MCP",
     description:
