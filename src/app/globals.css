@@ -605,6 +605,14 @@ html[data-theme="dark"] .scene-stars {
     width: 100%;
   }
 
+  /* header buttons wrap as chips so content shows on the first screen */
+  .site-header .pixel-button,
+  .site-header .pixel-nav {
+    width: auto;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+  }
+
   .hero-screen {
     min-height: auto;
     padding-top: 2rem;

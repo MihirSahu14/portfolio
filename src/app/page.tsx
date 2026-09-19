@@ -17,7 +17,7 @@ export default function Home() {
     <SiteShell
       title="Mihir Sahu"
       eyebrow="Player One"
-      description="Software Engineer + Game Designer"
+      description="AI Engineer · Full-Stack · Game Designer"
       scene="scene-home"
       spriteKind="home"
     >
@@ -25,12 +25,12 @@ export default function Home() {
         <div className="hero-copy">
           <p className="pixel-eyebrow">Start Screen</p>
           <h2 className="mt-5 max-w-4xl text-5xl uppercase sm:text-6xl lg:text-7xl">
-            I build software, systems, and game worlds.
+            I build AI agents, products, and game worlds.
           </h2>
           <p className="mt-8 max-w-2xl text-2xl leading-9 text-[var(--muted)]">
-            My work sits between engineering and design. Sometimes that means AI and backend
-            systems, sometimes it means mechanics, UI, and building things that people actually
-            want to interact with.
+            Right now that means LLM agents, MCP tooling and evals, shipped as full-stack products.
+            On the side it means mechanics, UI, and building things that people actually want to
+            interact with.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Link href="/projects" className="pixel-button">

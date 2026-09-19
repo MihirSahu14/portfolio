@@ -61,19 +61,19 @@ export const socialLinks: ExternalLink[] = [
 ];
 
 export const heroStats = [
-  { label: "Role", value: "SWE + Game Dev" },
+  { label: "Role", value: "AI Engineer" },
   { label: "School", value: "UW-Madison" },
   { label: "Grad", value: "May 2026" },
-  { label: "Mode", value: "Build + Design" },
+  { label: "Based", value: "San Francisco" },
 ];
 
 export const homeHighlights: FeatureCard[] = [
   {
-    title: "Software",
-    subtitle: "Full-stack, AI, cloud",
+    title: "AI Engineering",
+    subtitle: "Agents, LLM apps, full-stack",
     description:
-      "I like building products and systems that feel clean to use and solid under the hood, from AI tools to serverless backend work.",
-    tags: ["Java", "Python", "AWS"],
+      "I build LLM agents and the products around them: memory, tool use over MCP, human approval loops, and evals, shipped as full-stack apps.",
+    tags: ["TypeScript", "Python", "LLM Agents", "MCP"],
   },
   {
     title: "Games",
@@ -96,7 +96,7 @@ export const featuredProjects: FeatureCard[] = [
     title: "Intern",
     subtitle: "Next.js, TypeScript, Convex, MCP, Gemini API, OAuth",
     description:
-      "A shared memory for AI agents so everything a company learns lives in one place: capturing the same thing twice strengthens what is known instead of creating a duplicate, and the full history can be replayed to rebuild it. Agents draft emails and Slack messages but never send them, and the edits a person makes before approving are handed to the next agent, so it gets it right sooner without any retraining.",
+      "A shared memory layer for AI agents, started at a hackathon and continued solo. An append-only event log with idempotent capture, where a second independent observation raises confidence instead of duplicating, and the whole brain replays from the log. Agents draft email and Slack actions for human approval; edits are stored as preference facts the next agent retrieves, so behaviour improves without retraining. Exposed as an MCP server.",
     tags: ["Next.js", "Convex", "MCP", "Gemini"],
     href: "https://intern-brain.vercel.app",
   },
@@ -104,7 +104,7 @@ export const featuredProjects: FeatureCard[] = [
     title: "GameGold",
     subtitle: "Next.js, FastAPI, ReactFlow, Claude API, MongoDB, Unity MCP",
     description:
-      "An AI-powered game design platform guiding developers through 7 stages: concept and GDD generation via sequential Claude calls, systems and balance analysis with exploit detection, asset production (sprites, C# scripts, dialogue trees), Unity integration via an in-Editor MCP server, AI playtesting across 4 personas, and deployment tooling with store page and export bundle generation.",
+      "An AI-powered game design platform guiding developers through 7 stages: concept, GDD generation via sequential Claude calls, systems and balance analysis with exploit detection, asset production (sprites, C# scripts, dialogue trees), Unity integration via an in-Editor MCP server, AI playtesting across 4 personas, and deployment tooling with store page and export bundle generation.",
     tags: ["Next.js", "FastAPI", "MongoDB", "Claude"],
     href: "https://gamegold.vercel.app/",
   },
@@ -176,9 +176,9 @@ export const experienceItems: TimelineItem[] = [
     title: "Software Engineer Intern (Capstone)",
     org: "Capital One",
     location: "Madison, WI",
-    period: "Feb 2026 - Present",
+    period: "Feb 2026 - May 2026",
     bullets: [
-      "Architecting a serverless fraud detection system on AWS for real-time transaction scoring and alerts.",
+      "Architected a serverless fraud detection system on AWS for real-time transaction scoring and alerts.",
       "Implemented asynchronous processing and per-account thresholds for faster fraud decisions.",
       "Built a Twilio-based feedback loop to update fraud flags and accelerate responses.",
     ],
@@ -187,18 +187,18 @@ export const experienceItems: TimelineItem[] = [
     title: "Research Assistant",
     org: "The UW Game Lab",
     location: "Madison, WI",
-    period: "Jan 2026 - Present",
+    period: "Jan 2026 - May 2026",
     bullets: [
-      "Prototype analog and digital games around algorithm literacy, echo chambers, and bias.",
-      "Run weekly playtests and design iterations with an interdisciplinary team.",
-      "Support demos and conference submissions for interactive learning research.",
+      "Prototyped analog and digital games around algorithm literacy, echo chambers, and bias.",
+      "Ran weekly playtests and design iterations with an interdisciplinary team.",
+      "Contributed to submissions accepted at IDC and Play Make Learn 2026.",
     ],
   },
   {
     title: "Research Assistant | AI Department",
     org: "Sprocket Lab",
     location: "Madison, WI",
-    period: "Sep 2025 - Present",
+    period: "Sep 2025 - May 2026",
     bullets: [
       "Built a multi-level RL environment in IsaacGym for quadcopter navigation and obstacle avoidance.",
       "Integrated VLM-based control and hierarchical learning pipelines.",
@@ -255,7 +255,11 @@ export const skills = {
     "Technical Design",
   ],
   ai: [
-    "Generative AI",
+    "LLM Agents",
+    "MCP",
+    "Evals",
+    "Anthropic API",
+    "Gemini API",
     "OpenAI API",
     "RAG",
     "Reinforcement Learning",
@@ -268,7 +272,7 @@ export const skills = {
 
 export const aboutCopy = {
   intro:
-    "I am a Computer Science and Data Science student at UW-Madison who likes building things that feel alive, whether that means a backend handling real constraints or a mechanic landing exactly the way it should.",
+    "I am an AI engineer in San Francisco (UW-Madison CS + Data Science, May 2026) who likes building things that feel alive, whether that means a backend handling real constraints or a mechanic landing exactly the way it should.",
   cs: "On the CS side, I am drawn to systems with moving parts: full-stack products, cloud-backed services, AI tooling, and projects where the technical architecture actually matters. I have worked across Java, Python, C, JavaScript, and TypeScript, and I like the point where a rough idea turns into something real, usable, and reliable.",
   games:
     "On the game side, I am both a designer and a developer. I like the overlap between mechanics, tone, interface, and engineering, which is what pulled me toward horror games, management sims, and research-driven prototypes. I treat game design as systems thinking with personality, not just presentation layered on top.",

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Mihir Sahu | Software Engineer and Game Developer",
+  title: "Mihir Sahu | AI Engineer",
   description:
-    "Portfolio for Mihir Sahu, a UW-Madison Computer Science and Game Design student building software systems and game experiences.",
+    "Mihir Sahu, AI engineer in San Francisco. Builds LLM agents, MCP tooling and full-stack AI products. UW-Madison CS + Data Science, 2026.",
 };
 
 export default function RootLayout({
