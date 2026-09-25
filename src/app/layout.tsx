@@ -1,10 +1,17 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
+const title = "Mihir Sahu | AI Engineer";
+const description =
+  "Mihir Sahu, AI engineer in San Francisco. Builds LLM agents, MCP tooling and full-stack AI products. UW-Madison CS + Data Science, 2026.";
+
+// openGraph tags are what LinkedIn/Slack read to build link previews
 export const metadata: Metadata = {
-  title: "Mihir Sahu | AI Engineer",
-  description:
-    "Mihir Sahu, AI engineer in San Francisco. Builds LLM agents, MCP tooling and full-stack AI products. UW-Madison CS + Data Science, 2026.",
+  metadataBase: new URL("https://www.mihirsahu.dev"),
+  title,
+  description,
+  openGraph: { title, description, url: "/", siteName: "Mihir Sahu", type: "website" },
+  twitter: { card: "summary_large_image", title, description },
 };
 
 export const viewport: Viewport = {
