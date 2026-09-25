@@ -14,6 +14,7 @@ export type FeatureCard = {
   subtitle: string;
   description: string;
   href?: string;
+  code?: string;
 };
 
 export type TimelineItem = {
@@ -63,6 +64,7 @@ export const featuredProjects: FeatureCard[] = [
     description:
       "Shared memory layer for AI agents, exposed as an MCP server. Append-only event log with idempotent capture; agents draft email and Slack actions for human approval, and edits become preference facts the next agent retrieves, so behaviour improves without retraining.",
     href: "https://intern-brain.vercel.app",
+    code: "https://github.com/MihirSahu14/intern",
   },
   {
     title: "GameGold",
@@ -70,6 +72,7 @@ export const featuredProjects: FeatureCard[] = [
     description:
       "AI game design platform that takes a game from concept to ship in 7 stages: GDD generation with Claude, balance analysis with exploit detection, asset generation, Unity integration via an in-Editor MCP server, and AI playtesting across 4 personas.",
     href: "https://gamegold.vercel.app/",
+    code: "https://github.com/MihirSahu14/GameGold",
   },
   {
     title: "CryptoDash",
@@ -77,15 +80,18 @@ export const featuredProjects: FeatureCard[] = [
     description:
       "A full-stack cryptocurrency dashboard with live market tracking, interactive candlestick charts, crypto news, wallet-based portfolio analysis, and AI-style insight features.",
     href: "https://cryptodash-eta.vercel.app/",
+    code: "https://github.com/MihirSahu14/CryptoDash",
   },
   {
     title: "NOMinate",
+    code: "https://github.com/MihirSahu14/NOMinate",
     subtitle: "Flask, OpenAI API, MongoDB",
     description:
       "A recommendation system for meals that adapts to user feedback, balances dietary constraints, and supports both takeout and home-cooking decisions.",
   },
   {
     title: "Fraud Detection Capstone",
+    code: "https://github.com/MihirSahu14/CapitalOneCapstone",
     subtitle: "AWS Lambda, API Gateway, DynamoDB, Twilio",
     description:
       "An event-driven fraud scoring pipeline that evaluates transactions in real time and loops customer feedback back into the risk system.",
@@ -105,9 +111,11 @@ export const featuredGames: FeatureCard[] = [
     description:
       "A horror game focused on atmosphere, progression, enemy behaviors, and modular systems that could expand without collapsing under their own weight.",
     href: "https://aeryno.itch.io/veil",
+    code: "https://github.com/MihirSahu14/Veil",
   },
   {
     title: "Community Cook",
+    code: "https://github.com/MihirSahu14/CommunityCookGame",
     subtitle: "GameMaker Studio, GML, Pixel Art",
     description:
       "A pixel-art management sim about feeding a struggling town with limited ingredients, recurring NPCs, and a mechanics-driven nutrition scoring loop.",
@@ -224,3 +232,7 @@ export const skills = {
     "Data Visualization",
   ],
 };
+
+// GitHub mark (16x16 viewBox), used in the hero and on project Code buttons
+export const githubPath =
+  "M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z";

@@ -94,6 +94,10 @@ h6 {
 .pixel-card {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 32%), var(--panel-strong);
   padding: 1.5rem;
+}
+
+.pixel-nav,
+.pixel-button {
   transition:
     transform 180ms steps(2),
     box-shadow 180ms steps(2),
@@ -102,7 +106,6 @@ h6 {
 
 /* hover lift only on real pointers; on phones a tap leaves :hover stuck on */
 @media (hover: hover) {
-  .pixel-card:hover,
   .pixel-nav:hover,
   .pixel-button:hover {
     transform: translate(-4px, -4px);
