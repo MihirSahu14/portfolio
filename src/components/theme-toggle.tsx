@@ -1,76 +1,25 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 
-const THEMES = ["dark", "light"] as const;
-type Theme = (typeof THEMES)[number];
-type ThemeTransition = "to-light" | "to-dark";
-
-function applyTheme(theme: Theme, transition?: ThemeTransition) {
-  document.documentElement.dataset.theme = theme;
-
-  if (transition) {
-    document.documentElement.dataset.themeTransition = transition;
-  } else {
-    delete document.documentElement.dataset.themeTransition;
-  }
-
-  window.localStorage.setItem("theme", theme);
-}
-
+// Initial theme is set by the inline script in layout.tsx; label swaps via CSS on [data-theme].
 export function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme>(() => {
-    if (typeof window === "undefined") {
-      return "dark";
-    }
-
-    const saved = window.localStorage.getItem("theme") as Theme | null;
-    if (saved && THEMES.includes(saved)) {
-      return saved;
-    }
-
-    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-  });
-  const previousThemeRef = useRef<Theme>(theme);
-  const transitionTimeoutRef = useRef<number | null>(null);
-
-  useEffect(() => {
-    const previousTheme = previousThemeRef.current;
-    const transition =
-      previousTheme === theme
-        ? undefined
-        : theme === "light"
-          ? "to-light"
-          : "to-dark";
-
-    if (transitionTimeoutRef.current !== null) {
-      window.clearTimeout(transitionTimeoutRef.current);
-      transitionTimeoutRef.current = null;
-    }
-
-    applyTheme(theme, transition);
-
-    if (transition) {
-      transitionTimeoutRef.current = window.setTimeout(() => {
-        delete document.documentElement.dataset.themeTransition;
-        transitionTimeoutRef.current = null;
-      }, 2600);
-    }
-
-    previousThemeRef.current = theme;
-  }, [theme]);
-
-  useEffect(() => {
-    return () => {
-      if (transitionTimeoutRef.current !== null) {
-        window.clearTimeout(transitionTimeoutRef.current);
-      }
-    };
-  }, []);
+  const transitionTimeout = useRef<number | undefined>(undefined);
 
   function toggleTheme() {
-    const nextTheme: Theme = theme === "dark" ? "light" : "dark";
-    setTheme(nextTheme);
+    const root = document.documentElement;
+    const next = root.dataset.theme === "light" ? "dark" : "light";
+
+    root.dataset.theme = next;
+    root.dataset.themeTransition = next === "light" ? "to-light" : "to-dark";
+    try {
+      localStorage.setItem("theme", next);
+    } catch {}
+
+    window.clearTimeout(transitionTimeout.current);
+    transitionTimeout.current = window.setTimeout(() => {
+      delete root.dataset.themeTransition;
+    }, 2600);
   }
 
   return (
@@ -80,7 +29,8 @@ export function ThemeToggle() {
       onClick={toggleTheme}
       aria-label="Toggle color theme"
     >
-      {theme === "dark" ? "LIGHT MODE" : "DARK MODE"}
+      <span className="theme-label-dark">LIGHT MODE</span>
+      <span className="theme-label-light">DARK MODE</span>
     </button>
   );
 }

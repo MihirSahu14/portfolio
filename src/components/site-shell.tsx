@@ -5,16 +5,10 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { SpriteCluster } from "@/components/sprite-cluster";
 
 export function SiteShell({
-  title,
-  eyebrow,
-  description,
   scene = "scene-default",
   spriteKind = "default",
   children,
 }: {
-  title: string;
-  eyebrow: string;
-  description?: string;
   scene?: string;
   spriteKind?: string;
   children: ReactNode;
@@ -30,57 +24,35 @@ export function SiteShell({
       </div>
       <div className="scene-stars pointer-events-none fixed inset-0" />
       <SpriteCluster kind={spriteKind} />
-      <div className="scene-content relative mx-auto flex min-h-screen w-full max-w-7xl flex-col px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
-        <header className="site-header mb-10">
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
-            <div>
-              <p className="pixel-eyebrow">{eyebrow}</p>
-              <h1 className="mt-4 text-3xl uppercase sm:text-4xl">{title}</h1>
-              {description ? (
-                <p className="mt-5 max-w-2xl text-xl leading-8 text-[var(--muted)]">{description}</p>
-              ) : null}
-            </div>
-            <div className="flex flex-wrap items-center gap-3">
-              <ThemeToggle />
-              <Link className="pixel-button" href={resumeLink.href}>
-                RESUME
-              </Link>
-              <a className="pixel-button" href="mailto:mihirs1410@gmail.com">
-                CONTACT
-              </a>
-            </div>
-          </div>
-          <nav className="mt-8 flex flex-wrap gap-3">
+      <div className="scene-content relative mx-auto flex min-h-screen w-full max-w-6xl flex-col px-4 py-5 sm:px-6 lg:px-8">
+        <header className="site-header">
+          <nav className="flex flex-wrap items-center gap-2 sm:justify-end">
             {navItems.map((item) => (
-              <Link key={item.href} className="pixel-nav" href={item.href}>
+              <Link key={item.href} className="pixel-nav section-link" href={item.href}>
                 {item.label}
               </Link>
             ))}
+            <Link className="pixel-button" href={resumeLink.href}>
+              Resume
+            </Link>
+            <ThemeToggle />
           </nav>
         </header>
 
         <main className="flex-1">{children}</main>
 
-        <footer className="site-footer mt-14">
-          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-            <p className="max-w-2xl text-sm text-[var(--muted)]">
-              I build software, games, and systems that are meant to be explored.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              {socialLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  download={link.download}
-                  target={link.href.startsWith("http") ? "_blank" : undefined}
-                  rel={link.href.startsWith("http") ? "noreferrer" : undefined}
-                  className="pixel-nav"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          </div>
+        <footer className="site-footer mt-16 flex flex-wrap gap-3 border-t-2 border-dashed border-[var(--border)] pt-6">
+          {socialLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              target={link.href.startsWith("http") ? "_blank" : undefined}
+              rel={link.href.startsWith("http") ? "noreferrer" : undefined}
+              className="pixel-nav"
+            >
+              {link.label}
+            </a>
+          ))}
         </footer>
       </div>
     </div>
