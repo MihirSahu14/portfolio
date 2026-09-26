@@ -84,7 +84,8 @@ export const featuredProjects: FeatureCard[] = [
   },
   {
     title: "NOMinate",
-    code: "https://github.com/MihirSahu14/NOMinate",
+    href: "https://nominate-web.onrender.com",
+    code: "https://github.com/ishitakapoor7/NOMinate-cheesehacks",
     subtitle: "Flask, OpenAI API, MongoDB",
     description:
       "A recommendation system for meals that adapts to user feedback, balances dietary constraints, and supports both takeout and home-cooking decisions.",
