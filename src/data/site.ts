@@ -60,9 +60,9 @@ export const socialLinks: ExternalLink[] = [
 export const featuredProjects: FeatureCard[] = [
   {
     title: "Intern",
-    subtitle: "Next.js, TypeScript, Convex, MCP, Gemini API, OAuth",
+    subtitle: "Next.js, TypeScript, Convex, Claude API, Composio, Slack API",
     description:
-      "Shared memory layer for AI agents, exposed as an MCP server. Append-only event log with idempotent capture; agents draft email and Slack actions for human approval, and edits become preference facts the next agent retrieves, so behaviour improves without retraining.",
+      "Community brain for AI agents. Agents draft emails and Slack messages that go out from the member's own Gmail or Slack after human approval; edits become facts the next agent reads first, and the community Slack, documents and GitHub repos feed a searchable archive. Deterministic by design: live-mode eval 15/28 → 28/28 with zero clarifying questions.",
     href: "https://intern-brain.vercel.app",
     code: "https://github.com/MihirSahu14/intern",
   },

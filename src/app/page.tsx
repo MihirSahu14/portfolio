@@ -34,12 +34,12 @@ export default function Home() {
           AI Engineer · San Francisco
         </p>
         <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--muted)]">
-          I build LLM agents and the products around them: memory, MCP tooling, evals and
-          human-approval loops. Latest:{" "}
+          I build LLM agents and the products around them: memory, human-approval loops,
+          evals and tooling. Latest:{" "}
           <a className={inlineLink} href="https://intern-brain.vercel.app" target="_blank" rel="noreferrer">
             Intern
           </a>
-          , a shared memory layer for agents, and{" "}
+          , a community brain for AI agents, and{" "}
           <a className={inlineLink} href="https://gamegold.vercel.app/" target="_blank" rel="noreferrer">
             GameGold
           </a>
