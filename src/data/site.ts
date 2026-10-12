@@ -137,13 +137,26 @@ export const featuredGames: FeatureCard[] = [
 
 export const experienceItems: TimelineItem[] = [
   {
+    title: "AI Engineer",
+    org: "allNeurons",
+    location: "Santa Clara, CA",
+    period: "Sep 2026 - Oct 2026",
+    bullets: [
+      "Built multi-agent workflows that turn HVAC clients' site-walk photos, field notes and job documents into asset lists and cited technical assessments, cutting assessment time from 2 weeks to under 2 hours.",
+      "Raised extraction accuracy from 62% to 73% on a 147-field benchmark with subagent photo verification and an automated benchmark harness, reaching 91% serial-number accuracy across 7 real jobs.",
+      "Built SSO with role-based access, OpenTelemetry ingest and per-run skill tracking for an AI-ROI SaaS, powering team leaderboards, ROI dashboards and auto-alerts for newly detected skills.",
+      "Engineered self-learning loops that upgrade agent skills from user edits, and wired agents into live Salesforce and Snowflake data.",
+      "Delivered 20+ agent skills, 6 data connectors and a voice sales agent (iterated over 15 versions) across 3 client deployments.",
+    ],
+  },
+  {
     title: "Software Engineer Intern (Capstone)",
     org: "Capital One",
     location: "Madison, WI",
     period: "Feb 2026 - May 2026",
     bullets: [
-      "Architected a serverless fraud detection system on AWS for real-time transaction scoring and alerts.",
-      "Implemented asynchronous processing and per-account thresholds for faster fraud decisions.",
+      "Architected a serverless fraud detection system on AWS within a 5-person Agile team, cutting manual review time by 30% through automated model scoring.",
+      "Prototyped an asynchronous 0-1 scoring pipeline that increased transaction throughput by 150% and enabled real-time fraud decisions; validated riskiest assumptions via Google Design Sprints.",
       "Built a Twilio-based feedback loop to update fraud flags and accelerate responses.",
     ],
   },
@@ -159,14 +172,13 @@ export const experienceItems: TimelineItem[] = [
     ],
   },
   {
-    title: "Research Assistant | AI Department",
+    title: "Research Assistant, AI Department",
     org: "Sprocket Lab",
     location: "Madison, WI",
     period: "Sep 2025 - May 2026",
     bullets: [
-      "Built a multi-level RL environment in IsaacGym for quadcopter navigation and obstacle avoidance.",
-      "Integrated VLM-based control and hierarchical learning pipelines.",
-      "Automated multi-trial evaluation and visualization across 100+ randomized episodes.",
+      "Built a multi-level RL environment in IsaacGym for autonomous quadcopter navigation, integrating vision-language model control and weak-supervision pipelines to enable hierarchical policy learning.",
+      "Trained and evaluated agents across 100+ randomized episodes using depth-camera input, achieving consistent navigation performance; automated experiment pipelines to accelerate iteration.",
     ],
   },
   {
@@ -175,9 +187,8 @@ export const experienceItems: TimelineItem[] = [
     location: "Singapore",
     period: "Jun 2025 - Feb 2026",
     bullets: [
-      "Developed an AI-assisted ultrasound guidance system for clinician-style scan replication.",
-      "Built a single-camera perception pipeline with OpenCV, MediaPipe, and OCR.",
-      "Improved repeatability by constraining probe movement algorithmically.",
+      "Developed an AI-assisted ultrasound guidance system that learned clinician-defined scan trajectories, enabling non-experts to reproduce expert-quality scans with high spatial fidelity.",
+      "Built a real-time perception pipeline with OpenCV, MediaPipe and OCR for landmark detection and adaptive probe navigation; reduced operator error by algorithmically constraining probe motion.",
     ],
   },
   {
@@ -186,9 +197,8 @@ export const experienceItems: TimelineItem[] = [
     location: "Gurgaon, India",
     period: "May 2024 - Jul 2024",
     bullets: [
-      "Built a generative AI platform for sales pitches, decks, and short videos.",
-      "Deployed the application on AWS EC2 and S3 for scalable multi-user access.",
-      "Developed RAG chatbots to improve answer quality and automate routine queries.",
+      "Built a full-stack Generative AI platform that auto-generated sales pitches, decks, and videos, cutting manual pitch preparation time by 50%.",
+      "Developed RAG-based chatbots to automate customer queries and improve response relevance; deployed on AWS EC2 and S3 for scalable enterprise multi-user access.",
     ],
   },
 ];
