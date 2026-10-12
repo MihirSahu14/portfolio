@@ -20,7 +20,9 @@ const socialIcons = [
 
 const skillRows: [string, string[]][] = [
   ["AI", skills.ai],
-  ["Engineering", skills.engineering],
+  ["Languages", skills.languages],
+  ["Frameworks", skills.frameworks],
+  ["Tools", skills.tools],
   ["Game Dev", skills.gameDev],
 ];
 
