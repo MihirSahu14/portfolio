@@ -107,6 +107,14 @@ export const featuredProjects: FeatureCard[] = [
 
 export const featuredGames: FeatureCard[] = [
   {
+    title: "Haunt",
+    subtitle: "JavaScript, HTML5 Canvas, Web Audio",
+    description:
+      "A pixel-art horror game in the browser where you play the ghost and scare a family out of the house before dawn, with dynamic lighting, hunters drawn to noise, and a tension director pacing every run.",
+    href: "https://mihirsahu14.itch.io/haunt",
+    code: "https://github.com/MihirSahu14/haunt",
+  },
+  {
     title: "Veil",
     subtitle: "Unity, C#, 2D Horror",
     description:
