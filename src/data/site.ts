@@ -76,9 +76,9 @@ export const featuredProjects: FeatureCard[] = [
   },
   {
     title: "Playbench",
-    subtitle: "Claude Code plugin, Python, Playwright",
+    subtitle: "AI agent plugin, Python, Playwright",
     description:
-      "A Claude Code plugin where bots playtest your real game build after every feature. Headless Chromium with a seeded virtual clock catches crashes, softlocks and dead input, sweeps balance knobs, and blocks itch.io and Steam releases until AI art is disclosed and release gates are ticked.",
+      "A plugin for AI coding agents (Claude Code, Codex, Cursor, Copilot, Gemini CLI) that covers every game-dev loop: design, build, bot playtests on your real build, balance sweeps, iteration, human playtest logs and gated itch.io/Steam shipping. Bots catch crashes, softlocks and dead controls after every feature, and releases stay blocked until AI art is disclosed and you tick the gates.",
     code: "https://github.com/MihirSahu14/playbench",
   },
   {
