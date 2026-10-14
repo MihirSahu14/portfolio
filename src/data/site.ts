@@ -75,6 +75,13 @@ export const featuredProjects: FeatureCard[] = [
     code: "https://github.com/MihirSahu14/GameGold",
   },
   {
+    title: "Playbench",
+    subtitle: "Claude Code plugin, Python, Playwright",
+    description:
+      "A Claude Code plugin where bots playtest your real game build after every feature. Headless Chromium with a seeded virtual clock catches crashes, softlocks and dead input, sweeps balance knobs, and blocks itch.io and Steam releases until AI art is disclosed and release gates are ticked.",
+    code: "https://github.com/MihirSahu14/playbench",
+  },
+  {
     title: "CryptoDash",
     subtitle: "React, FastAPI, CoinGecko API",
     description:
