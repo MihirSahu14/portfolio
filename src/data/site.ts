@@ -68,9 +68,9 @@ export const featuredProjects: FeatureCard[] = [
   },
   {
     title: "GameGold",
-    subtitle: "Next.js, FastAPI, ReactFlow, Claude API, MongoDB, Unity MCP",
+    subtitle: "Next.js 16, FastAPI, LiteLLM, MongoDB, Unity (C#)",
     description:
-      "AI game design platform that takes a game from concept to ship in 7 stages: GDD generation with Claude, balance analysis with exploit detection, asset generation, Unity integration via an in-Editor MCP server, and AI playtesting across 4 personas.",
+      "AI game design platform that takes a game through 5 evidence-gated stages, from pitch to ship. Built and published 6 games in 6 genres to itch.io in one day, each built in Unity and playtested by AI agents. A C# MCP bridge inside the Unity Editor lets the browser create scenes, GameObjects, scripts and sprites, enter Play mode, build for WebGL and publish to itch.io; AI agents then playtest the real build from screenshots alone.",
     href: "https://gamegold.vercel.app/",
     code: "https://github.com/MihirSahu14/GameGold",
   },
