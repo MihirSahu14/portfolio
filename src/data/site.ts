@@ -75,6 +75,13 @@ export const featuredProjects: FeatureCard[] = [
     code: "https://github.com/MihirSahu14/GameGold",
   },
   {
+    title: "Shopaholics",
+    subtitle: "Python, Fireworks AI, Open LLMs, Hybrid Retrieval",
+    description:
+      "One of 6 teams picked to present, out of 70+, at the Fireworks AI Deploy hackathon (team of 3). Paste a product or a link and it returns every listing of that exact product in a catalog, with the evidence, or says it isn't there. A cheap open model on Fireworks inside our harness beat Claude Opus 5.5 on match F1 (0.863 vs 0.853) at 32x lower cost per lookup. I led data, evaluation and results: on 1,500 hard real-world queries, error analysis lifted the same model's F1 from 0.838 to 0.881.",
+    code: "https://github.com/MihirSahu14/Shopaholics",
+  },
+  {
     title: "Playbench",
     subtitle: "AI agent plugin, Python, Playwright",
     description:
